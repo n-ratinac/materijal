@@ -4,6 +4,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .delete {
+            background-color: red;
+            display: block;
+            width: 50px;
+            aspect-ratio: 1;
+        }
+        .dont {
+            background-color: blue;
+            display: block;
+            width: 50px;
+            aspect-ratio: 1;
+        }
+    </style>
     <script>
         function menjajBoju(){
             // dobije referencu na element sa id-em target1
@@ -35,6 +49,18 @@
             // ako hocu da ne zauzima mesto nako skrivanja
             element.style.display = "inherit"
         }
+
+        function brisiParagrafe(){
+            let elements = document.getElementsByTagName("p")
+            while(elements[0])
+                elements[0].parentElement.removeChild(elements[0])   
+        }
+
+        function brisiDeleteKlasu() {
+            let elements = document.getElementsByClassName("delete")
+            while(elements[0])
+                elements[0].parentElement.removeChild(elements[0])
+        }
     </script>
 </head>
 <body>
@@ -53,5 +79,17 @@
     <p id="target3">Ovaj element je za skrivanje</p>
     <button onclick="sakrij()">Sakrij paragraf</button>
     <button onclick="prikazi()">Prikazi paragraf</button>
+
+    <h1>Brisanje po uslovu</h1>
+    <button onclick="brisiParagrafe()">Brisi sve paragrafe</button>
+    <button onClick="brisiDeleteKlasu()">Brisi sve one sa klasom <i>delete</i></button>
+
+    <div class="delete"></div>
+    <div class="delete"></div>
+    <div class="dont"></div>
+    <div class="delete"></div>
+    <div class="dont"></div>
+    <div class="dont"></div>
+
 </body>
 </html>
