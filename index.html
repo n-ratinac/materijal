@@ -4,8 +4,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        function menjajBoju(){
+            // dobije referencu na element sa id-em target1
+            var element = document.getElementById("target1")
+            // promeni mu boju teksta u crveno
+            element.style.color = "red"
+        }
+    </script>
 </head>
 <body>
-    Zdravo svete!
+    <h1>Promena stilova iz javascripta</h1>
+    <h2 id="target1">Promena boje teksta ovog elementa</h2>
+    <button onclick="menjajBoju()">Menjaj boju</button>
 </body>
 </html>
