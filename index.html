@@ -11,11 +11,47 @@
             // promeni mu boju teksta u crveno
             element.style.color = "red"
         }
+
+        function dodajParagraf(){
+            document.body.innerHTML += "<p>Ovo je dodat paragraf<p>"
+        }
+
+        function brisiElement(){
+            var element = document.getElementById("target2")
+            console.log(element)
+            element.parentElement.removeChild(element)
+        }
+
+        function sakrij(){
+            let element = document.getElementById("target3")
+            element.style.visibility = "hidden"
+            // ako hocu da ne zauzima mesto nako skrivanja
+            element.style.display = "none"
+        }
+
+        function prikazi(){
+            let element = document.getElementById("target3")
+            element.style.visibility = "visible"
+            // ako hocu da ne zauzima mesto nako skrivanja
+            element.style.display = "inherit"
+        }
     </script>
 </head>
 <body>
     <h1>Promena stilova iz javascripta</h1>
     <h2 id="target1">Promena boje teksta ovog elementa</h2>
     <button onclick="menjajBoju()">Menjaj boju</button>
+
+    <h1>Dodavanje novih elemenata u DOM</h1>
+    <button onclick="dodajParagraf()">Dodaj novi paragraf</button>
+
+    <h1>Brisanje postojecih elemenata iz DOM-a</h1>
+    <p id="target2">Ovaj element je za brisanje</p>
+    <button onclick="brisiElement()">Brisi paragraf</button>
+
+    <h1>Skrivanje postojecih elemenata iz DOM-a</h1>
+    <p id="target3">Ovaj element je za skrivanje</p>
+    <button onclick="sakrij()">Sakrij paragraf</button>
+    <button onclick="prikazi()">Prikazi paragraf</button>
 </body>
 </html>
