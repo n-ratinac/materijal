@@ -6,3 +6,7 @@ Takodje sluzi za uputstva kako da se podesi na lokalnoj masini ukoliko se korist
 Format ovog fajla jeste *.md*, sto znaci da se moze koristiti za jednostavno formatiranje teksta.
 Tutorijal za ovaj jezik mozete naci na [ovom link](https://www.markdowntutorial.com/).
 
+Ovo je lista:
+  - Predmet 1
+  - Predmet 2
+  - Predmet 3
