@@ -63,7 +63,7 @@
         }
     </script>
 </head>
-<body>
+<body id="stranica">
     <h1>Promena stilova iz javascripta</h1>
     <h2 id="target1">Promena boje teksta ovog elementa</h2>
     <button onclick="menjajBoju()">Menjaj boju</button>
@@ -83,7 +83,7 @@
     <h1>Brisanje po uslovu</h1>
     <button onclick="brisiParagrafe()">Brisi sve paragrafe</button>
     <button onClick="brisiDeleteKlasu()">Brisi sve one sa klasom <i>delete</i></button>
-
+    <button onclick="document.body.innerHTML = '';";>brisi sve</button>
     <div class="delete"></div>
     <div class="delete"></div>
     <div class="dont"></div>
