@@ -61,6 +61,11 @@
             while(elements[0])
                 elements[0].parentElement.removeChild(elements[0])
         }
+         
+        
+        function brisiStranicu(){
+            document.documentElement.innerHTML=" "
+         }
     </script>
 </head>
 <body>
@@ -83,6 +88,7 @@
     <h1>Brisanje po uslovu</h1>
     <button onclick="brisiParagrafe()">Brisi sve paragrafe</button>
     <button onClick="brisiDeleteKlasu()">Brisi sve one sa klasom <i>delete</i></button>
+    <button onclick="brisiStranicu()">Brisi sve na stranici</button>
 
     <div class="delete"></div>
     <div class="delete"></div>
@@ -90,6 +96,7 @@
     <div class="delete"></div>
     <div class="dont"></div>
     <div class="dont"></div>
+ 
 
 </body>
 </html>
