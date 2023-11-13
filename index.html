@@ -61,6 +61,10 @@
             while(elements[0])
                 elements[0].parentElement.removeChild(elements[0])
         }
+
+        function brisiSve(){
+            document.documentElement.innerHTML = "";      
+        }
     </script>
 </head>
 <body>
@@ -90,6 +94,8 @@
     <div class="delete"></div>
     <div class="dont"></div>
     <div class="dont"></div>
+
+    <button onClick="brisiSve()">OBRISI SVE</button>
 
 </body>
 </html>
