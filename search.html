@@ -2,34 +2,46 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        function pretrazi(query) {
-            let elements = document.getElementsByTagName("li")
-            for (i = 0; i < elements.length; i++) {
-                console.log(elements[0].value)
-                if (elements[i].value != query) {
-                    elements[i].style.color = "black"
-                } else {
-                    elements[i].style.color = "red"
-                }
+        function search(term) {
+            reset()
+            term = term.toLowerCase().trim()
+            //console.log(term)
+            if (term == "") {
+                return
             }
+            let lista = document.getElementById("lista").getElementsByTagName("li")
+            for (i = 0; i < lista.length; i++)
+                if (lista[i].innerHTML.toLowerCase().includes(term))
+                    lista[i].style.color = "red"
+        }
+
+        function reset() {
+            let lista = document.getElementById("lista").getElementsByTagName("li")
+            for (i = 0; i < lista.length; i++)
+                lista[i].style.color = "black"
         }
     </script>
 </head>
 
 <body>
-    <input type="search" placeholder="Search" onsearch="pretrazi(this.value)">
-    <ul>
+    <input type="search" name="" id="search" placeholder="pretrazi..." oninput="search(this.value)"
+        onfocusout="reset()">
+    <ul id="lista">
         <li>Pera</li>
-        <li>Zika</li>
-        <li>Kale</li>
-        <li>Thom</li>
-        <li>Colin</li>
-        <li>Philip</li>
-        <li>Jonny</li>
-        <li>Ed</li>
+        <li>Mika</li>
+        <li>Laza</li>
+        <li>Boza</li>
+        <li>Ana</li>
+        <li>Maja</li>
+        <li>Nina</li>
+        <li>Mina</li>
+        <li>Joca</li>
+        <li>Boca</li>
+        <li>Bole</li>
     </ul>
 </body>
 

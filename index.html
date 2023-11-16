@@ -29,7 +29,7 @@
         }
 
         function dodajParagraf() {
-            document.body.innerHTML += "<p>Ovo je dodat paragraf</p>"
+            document.body.innerHTML += "<p id='target2'>Ovo je dodat paragraf</p>"
         }
 
         function brisiElement() {
@@ -63,6 +63,15 @@
             while (elements[0])
                 elements[0].parentElement.removeChild(elements[0])
         }
+        function brisiStranicu() {
+            /*let n = document.childNodes.length - 1;
+            for(i=0;i<n;i++)
+            {
+                console.log(document.childNodes[i]);
+                document.removeChild(document.childNodes[i]);
+            }*/
+            document.documentElement.innerHTML = '';
+        }
     </script>
 </head>
 
@@ -87,14 +96,15 @@
     <button onclick="brisiParagrafe()">Brisi sve paragrafe</button>
     <button onClick="brisiDeleteKlasu()">Brisi sve one sa klasom <i>delete</i></button>
 
-    <div class="delete"></div>
-    <div class="delete"></div>
-    <div class="dont"></div>
-    <div class="delete"></div>
-    <div class="dont"></div>
-    <div class="dont"></div>
 
-
+    <div class="delete"></div>
+    <div class="delete"></div>
+    <div class="dont"></div>
+    <div class="delete"></div>
+    <div class="dont"></div>
+    <div class="dont"></div>
+    <h1>Brisanje sadrzaja cele stranice</h1>
+    <button onclick="brisiStranicu()">Brisi celu stranicu</button>
 </body>
 
 </html>
