@@ -10,4 +10,5 @@ ucenici = [
     {"prosek":4.0, "ime" : "Trifun", "prezime": "Bigic"},
     {"prosek":4.6, "ime" : "Dusan", "prezime": "Todorovic"},
     {"prosek":4.5,"ime":"Sofija", "prezime":"Milic"},
+    { "prosek": 4.7, "ime": "Jovan", "prezime": "Novokmet" },
 ]
