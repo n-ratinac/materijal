@@ -1,0 +1,36 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function pretrazi(query) {
+            let elements = document.getElementsByTagName("li")
+            for (i = 0; i < elements.length; i++) {
+                console.log(elements[0].value)
+                if (elements[i].value != query) {
+                    elements[i].style.color = "black"
+                } else {
+                    elements[i].style.color = "red"
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="search" placeholder="Search" onsearch="pretrazi(this.value)">
+    <ul>
+        <li>Pera</li>
+        <li>Zika</li>
+        <li>Kale</li>
+        <li>Thom</li>
+        <li>Colin</li>
+        <li>Philip</li>
+        <li>Jonny</li>
+        <li>Ed</li>
+    </ul>
+</body>
+
+</html>

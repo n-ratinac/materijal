@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
             width: 50px;
             aspect-ratio: 1;
         }
+
         .dont {
             background-color: blue;
             display: block;
@@ -19,50 +21,51 @@
         }
     </style>
     <script>
-        function menjajBoju(){
+        function menjajBoju() {
             // dobije referencu na element sa id-em target1
             var element = document.getElementById("target1")
             // promeni mu boju teksta u crveno
             element.style.color = "red"
         }
 
-        function dodajParagraf(){
+        function dodajParagraf() {
             document.body.innerHTML += "<p>Ovo je dodat paragraf</p>"
         }
 
-        function brisiElement(){
+        function brisiElement() {
             var element = document.getElementById("target2")
             console.log(element)
             element.parentElement.removeChild(element)
         }
 
-        function sakrij(){
+        function sakrij() {
             let element = document.getElementById("target3")
             element.style.visibility = "hidden"
             // ako hocu da ne zauzima mesto nako skrivanja
             element.style.display = "none"
         }
 
-        function prikazi(){
+        function prikazi() {
             let element = document.getElementById("target3")
             element.style.visibility = "visible"
             // ako hocu da ne zauzima mesto nako skrivanja
             element.style.display = "inherit"
         }
 
-        function brisiParagrafe(){
+        function brisiParagrafe() {
             let elements = document.getElementsByTagName("p")
-            while(elements[0])
-                elements[0].parentElement.removeChild(elements[0])   
+            while (elements[0])
+                elements[0].parentElement.removeChild(elements[0])
         }
 
         function brisiDeleteKlasu() {
             let elements = document.getElementsByClassName("delete")
-            while(elements[0])
+            while (elements[0])
                 elements[0].parentElement.removeChild(elements[0])
         }
     </script>
 </head>
+
 <body>
     <h1>Promena stilova iz javascripta</h1>
     <h2 id="target1">Promena boje teksta ovog elementa</h2>
@@ -91,5 +94,7 @@
     <div class="dont"></div>
     <div class="dont"></div>
 
+
 </body>
+
 </html>
