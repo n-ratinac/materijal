@@ -14,8 +14,14 @@ ucenici = [
     { "prosek": 4.7, "ime": "Jovan", "prezime": "Novokmet" },
     {"prosek":4.4, "ime": "Dusan", "prezime": "Parezanovic"},
 <<<<<<< HEAD
+<<<<<<< HEAD
     {"prosek":4.5, "ime" : "Aleksa", "prezime": "Stevanovic"},
 =======
+=======
+    {"prosek":4.9, "ime": "Kolja", "prezime": "Vasiljevic"}
+    {"prosek":4.5, "ime": "Anastasija", "prezime": "Milosevic"},
+    {"prosek":4.9, "ime": "Natalija", "prezime": "Djordjevic"},
+>>>>>>> 19fce8db2c891cdc8f79959bcf5322109b880713
     {"prosek":4.8, "ime": "Mina", "prezime": "Milanovic"},
 >>>>>>> 00901d8881b32a8fe49696fb68f5f44fe442e4a5
 ]
