@@ -1,4 +1,5 @@
 ucenici = [
+    {"odeljenje": "IV-SI-2","prosek":4.3,"ime" : "Ivan", "prezime" : "Petrovic"},
     {"odeljenje": "IV-SI-3", "prosek":4.2, "ime" : "Luka", "prezime" : "Kojovic"},
     {"odeljenje": "IV-SI-3", "prosek":3.9, "ime" : "Lazar", "prezime" : "Stefanovic"},
     {"odeljenje": "IV-SI-3","prosek":3.5, "ime" : "Damjan", "prezime" : "Milenkovic"},
@@ -24,5 +25,4 @@ ucenici = [
     {"odeljenje": "IV-SI-3","prosek":4.5, "ime": "Luka", "prezime": "Boricic"},
     {"odeljenje": "IV-SI-2","prosek":5.0, "ime": "Sara", "prezime": "Radotic"},
     {"odeljenje": "IV-SI-2","prosek":4.9, "ime": "Filip", "prezime": "Slovic"},
-]
 
