@@ -3,12 +3,14 @@ script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js';
 document.getElementsByTagName('head')[0].appendChild(script);
 
 function renderUcenika(u){
-    $card = $("<div class='card col'></div>")
-    $cardBody = $("<div class='card-body'></div>")
+    $card = $(`<div class='card col ${u["odeljenje"]}'></div>`)
+    $cardBody = $("<div class='card-body d-flex flex-column align-items-center gap-3'></div>")
     $card.append($cardBody)
     $cardBody.text(u['ime'] + " " + u['prezime'])
-    $badge = $(`<span class='badge bg-primary w-auto'>${u['prosek']}</span>`)
+    $badge = $(`<span class='badge bg-primary w-auto'>Prosek: ${u['prosek']}</span>`)
     $cardBody.append($badge)
+    $odeljenje = $(`<span class='badge bg-success w-auto'>${u['odeljenje']}</span>`)
+    $cardBody.prepend($odeljenje)
     return $card
 }
 
@@ -30,4 +32,6 @@ function sortirajPoProseku(ucenici) {
 function sortirajPoPrezimenu(ucenici){
     ucenici.sort((a,b)=>a['prezime'].localeCompare(b['prezime'] ))
 }
+
+
 

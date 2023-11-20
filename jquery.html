@@ -6,6 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="ucenici.js"></script>
     <script src="uceniciRender.js"></script>
+    
     <script>
         $(document).ready(() => renderListuUcenika("#student-list", ucenici))
     </script>
@@ -13,6 +14,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="d-flex justify-content-evenly">
+    <div class="form-check col-3">
+        <input class="form-check-input" onclick="handleCheck(this)" data-target-class=".IV-SI-2" type="checkbox" value="" id="IV-SI-2-selector" checked>
+        <label class="form-check-label" for="flexCheckDefault">
+          IV-SI-2
+        </label>
+      </div>
+      <div class="form-check col-3">
+        <input class="form-check-input" onclick="handleCheck(this)" data-target-class=".IV-SI-3" type="checkbox" value="" id="IV-SI-3-selector" checked>
+        <label class="form-check-label" for="flexCheckChecked">
+          IV-SI-3
+        </label>
+      </div>
+    </div>
     <div id="student-list" class="row row-cols-4"></div>
+    <script src="controls.js"></script>
 </body>
 </html>
