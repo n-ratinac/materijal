@@ -13,6 +13,7 @@ ucenici = [
     {"odeljenje": "IV-SI-2","prosek":4.5,"ime":"Sofija", "prezime":"Milic"},
     {"odeljenje": "IV-SI-2", "prosek": 4.7, "ime": "Jovan", "prezime": "Novokmet" },
     {"odeljenje": "IV-SI-2","prosek":4.4, "ime": "Dusan", "prezime": "Parezanovic"},
+    {"odeljenje": "IV-SI-2","prosek":4.8, "ime": "Pavle", "prezime": "Ilic"},
     {"odeljenje": "IV-SI-3","prosek":4.5, "ime" : "Aleksa", "prezime": "Stevanovic"},
     {"odeljenje": "IV-SI-3","prosek":4.9, "ime": "Kolja", "prezime": "Vasiljevic"},
     {"odeljenje": "IV-SI-3","prosek":4.9,"ime":"Nikolina","prezime":"Ivanovic"},
