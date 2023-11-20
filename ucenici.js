@@ -22,4 +22,5 @@ ucenici = [
     {"odeljenje": "IV-SI-3","prosek":4.9, "ime": "Natalija", "prezime": "Djordjevic"},
     {"odeljenje": "IV-SI-3","prosek":4.8, "ime": "Mina", "prezime": "Milanovic"},
     {"odeljenje": "IV-SI-3","prosek":4.5, "ime": "Luka", "prezime": "Boricic"},
+    {"odeljenje": "IV-SI-2","prosek":4.9, "ime": "Filip", "prezime": "Slovic"},
 ]
