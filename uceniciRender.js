@@ -13,7 +13,7 @@ function renderUcenika(u){
 }
 
 function renderListuUcenika(target, data){
-    sortirajPoProseku(data)
+    sortirajPoPrezimenu(data)
     data.map(u => $(target).append(renderUcenika(u)))
 }
 
@@ -27,5 +27,7 @@ function sortirajPoProseku(ucenici) {
                 ucenici[j] = tmp
             }
 }
-
+function sortirajPoPrezimenu(ucenici){
+    ucenici.sort((a,b)=>a['prezime'].localeCompare(b['prezime'] ))
+}
 
