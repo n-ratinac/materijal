@@ -30,7 +30,7 @@
         }
 
         function dodajParagraf(){
-            document.body.innerHTML += "<p>Ovo je dodat paragraf</p>"
+            document.body.innerHTML += "<p id='target2'>Ovo je dodat paragraf</p>"
         }
 
         function brisiElement(){
@@ -112,7 +112,7 @@
     <h1>Brisanje po uslovu</h1>
     <button onclick="brisiParagrafe()">Brisi sve paragrafe</button>
     <button onClick="brisiDeleteKlasu()">Brisi sve one sa klasom <i>delete</i></button>
-    <button onclick="brisiStranicu()">Brisi celu stranicu</button>
+    
 
     <div class="delete"></div>
     <div class="delete"></div>
@@ -121,5 +121,7 @@
     <div class="dont"></div>
     <div class="dont"></div>
 <button onclick="skrivanje()">Sakrij crveno</button>
+    <h1>Brisanje sadrzaja cele stranice</h1>
+    <button onclick="brisiStranicu()">Brisi celu stranicu</button>
 </body>
 </html>
