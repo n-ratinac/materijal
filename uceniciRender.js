@@ -9,6 +9,8 @@ function renderUcenika(u){
     $cardBody.text(u['ime'] + " " + u['prezime'])
     $badge = $(`<span class='badge bg-primary w-auto'>${u['prosek']}</span>`)
     $cardBody.append($badge)
+    $odeljenje = $(`<span class='badge bg-secondary w-auto'>${u['odeljenje']}</span>`)
+    $cardBody.prepend($odeljenje)
     return $card
 }
 
