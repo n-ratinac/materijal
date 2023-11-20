@@ -17,6 +17,9 @@
             width: 50px;
             aspect-ratio: 1;
         }
+        .hidden{
+            display: none;
+        }
     </style>
     <script>
         function menjajBoju(){
@@ -71,6 +74,22 @@
             }*/
             document.documentElement.innerHTML = '';
         }
+        function skrivanje(){
+    // Pronađi sve elemente na stranici
+    let allElements = document.querySelectorAll('*');
+
+    // Iteriraj kroz sve elemente i provjeri boje
+    allElements.forEach(element => {
+      const computedStyle = window.getComputedStyle(element);
+      const color = computedStyle.getPropertyValue('color');
+      const backgroundColor = computedStyle.getPropertyValue('background-color');
+
+      // Proveri boje i dodaj klasu 'hidden' ako je potrebno
+      if (color === 'rgb(255, 0, 0)' || backgroundColor === 'rgb(255, 0, 0)') {
+        element.classList.add('hidden');
+      }
+    });
+}
     </script>
 </head>
 <body>
@@ -101,6 +120,7 @@
     <div class="delete"></div>
     <div class="dont"></div>
     <div class="dont"></div>
+<button onclick="skrivanje()">Sakrij crveno</button>
     <h1>Brisanje sadrzaja cele stranice</h1>
     <button onclick="brisiStranicu()">Brisi celu stranicu</button>
 </body>
