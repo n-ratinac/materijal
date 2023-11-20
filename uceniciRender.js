@@ -28,6 +28,6 @@ function sortirajPoProseku(ucenici) {
             }
 }
 function sortirajPoPrezimenu(ucenici){
-    ucenici.sort((a,b)=>a['prezime'].localeCompare(b['prezime']))
+    ucenici.sort((a,b)=>a['prezime'].localeCompare(b['prezime'] ))
 }
 
