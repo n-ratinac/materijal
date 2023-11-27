@@ -8,7 +8,7 @@ Pre nego sto zapocnemo pricu o dinamickom renderovanju, osvrnimo se na staticko.
 Staticke web stranice su karakteristicne po tome sto je njihov sadrzaj uvek isti nezavisno od toga ko, i odakle salje zahtev.
 Za isti zahtev ce se renderovati uvek ista stranica.
 
-![Staticki](image.png)
+![Staticki](staticki.png)
 
 Sa slike se vidi sledece (u hronoloskom poretku):
 
@@ -19,7 +19,7 @@ Sa slike se vidi sledece (u hronoloskom poretku):
 
 Dinamicko renderovanje bi izgledalo ovako:
 
-![Alt text](image-2.png)
+![Alt text](dinamicki.png)
 
 i sastoji se od sledecih koraka:
 
