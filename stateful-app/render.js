@@ -3,8 +3,11 @@ function buildDynamicDOM(state){
     console.log(state)
     state.forEach(([key, value]) => {
         $div = $(`<div class='col' id=${key}></div>`)
-        $div.on("dirty", () => render(key))
-        $('#root').append(`<div class='col' id=${key} ></div>`)
+        $div.on("data:dirty", () => {
+            render(key); 
+            console.log("Finished rendering");
+        })
+        $('#root').append($div)
     });
 }
 
@@ -16,7 +19,8 @@ function renderTask(task){
 }
 
 function render(selector){
-    $(selector).html('');
+    let id = "#"+selector
+    $(id).html('');
     data = state[selector]
-    data.map(d => $(selector).append(renderTask(d)))
+    data.map(d => $(id).append(renderTask(d)))
 }

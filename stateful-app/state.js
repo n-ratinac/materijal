@@ -6,10 +6,12 @@ state = {
 
 function initState(data){
     data.map(d => add(d['status'], d));
+    console.log("initialized state");
 }
 
 function add(selector, task){
     state[selector].push(task)
-    $(selector).trigger('dirty')
+    console.log(`adding new item to ${selector}`)
+    $(`#${selector}`).trigger('data:dirty')
 }
 
