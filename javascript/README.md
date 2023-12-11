@@ -444,6 +444,54 @@ zapravo moze pozvati u bilo kom kontekstu izvrsenja. U zavisnosti od konteksta:
 
 ### Nizovi
 
+Kao i kod drugih programskih jezika, nizove u javascript-u koristimo da bismo
+zapamtili vise promenjivih. Ono sto je tipicno za javascript (i python) jeste da
+jedan niz moze da drzi vise promenjivih razlicitog tipa:
+
+```js
+const niz = [
+    "Pera",
+    3,
+    1.2,
+    true,
+    false,
+    [1, 2, 3],
+    { ime: "Mika", godina: 15 },
+
+    for (let x of niz){
+        console.log(x);
+    }
+];
+```
+
+Ovde se koristi kljucna rec `of` (nesto slicno forEach petlji) da ukaze na to da
+se prolazi kroz tip podataka koji je **iterabilan**. **Objekti nisu iterabilni**
+
+Za nabrajanje se korisiti:
+
+| Kljucna rec | Tip                       |
+| :---------- | :------------------------ |
+| `of`        | nizovi, iterabilni tipovi |
+| `in`        | objekti                   |
+
+##### Indeksiranje
+
+```js
+const nums = [1, 2, 3, 4];
+console.log(nums[2]); // ispisuje 3
+```
+
+##### Duzina
+
+```js
+const nums = [1, 2, 3, 4, 5];
+console.log(nums.length);
+```
+
+Sve metode nad nizovima mozete naci na
+[ovom linku](https://www.w3schools.com/jsref/jsref_obj_array.asp) zajedno sa
+pratecom dokumentacijom i primerima.
+
 Kada se koristi u kontekstu klijentskog programiranja (browser-a) onda
 javascript ima pristup skupu funkcionalnosti koje jednim imenom zovemo **browser
 API**.
@@ -473,8 +521,9 @@ Ono sto nam browser API omogucava jesu sledece funkcionalnosti:
 
 ### Selekcija i pristup elementima
 
-Nacin pristupa DOM stablu se vrsi preko `document` objekta. Elementima DOM-a
-mozemo pristupati na osnovu:
+Nacin pristupa DOM stablu se vrsi preko `document` objekta (dokumentaciju mozete
+procitati [ovde](https://developer.mozilla.org/en-US/docs/Web/API/Document)).
+Elementima DOM-a mozemo pristupati na osnovu:
 
 -   tipa elementa `document.getElementsByTagName('div')`
 -   klase `document.getElementsByClassName('card')`
@@ -488,3 +537,32 @@ Treba imati u vidu da ove metode vracaju referencu na jedan element ili listu
 elemenata koji zadovoljavaju uslov selekcije.
 
 ### Menjanje sadrzaja elemenata
+
+#### Setovanje atributa
+
+```js
+let dugme = document.getElementById("myButton");
+dugme.disabled = true; // atribut disabled se postavlja na true
+dugme.setAttribute("name", "moje-dugme"); // setuje atribut 'name' na 'moje-dugme'
+```
+
+#### Setovanje stilova
+
+```js
+let emailInput = document.querySelector(`input[type='email']`)[0]; // mora [0] jer querySelector vraca listu
+email.style.padding = "4px"; // style je ugnjezden objekat na objektu email i setujemo padding svojstvo
+```
+
+#### Setovanje klase
+
+```js
+let divs = document.querySelector(`div.circle`); // uzimanje svih divova sa klasom circle
+// za svaki div
+for (div of divs) {
+    div.classList.add("large"); // na classList svojstvo dodati string 'large'
+}
+```
+
+Za vise informacija o tome sta sve mozete da radite sa HTMLElement objektima u
+javascript-u posetite
+[ovaj link](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)
