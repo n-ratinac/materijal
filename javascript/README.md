@@ -75,7 +75,7 @@ Ako se ovaj kod pokrene dobijemo:
 
 ![Alt text](image.png)
 
-[Dokumentacija o `console` objektu.](https://developer.mozilla.org/en-US/docs/Web/API/console)
+[Dokumentacija o `console` objektu.](https://developer.mozilla.org/en-US/docs/Web/API/console){:target="\_blank"}
 
 Takodje, jedan od nacina izlaza koji je specifican za browser jeste alert.
 Metoda `alert` stvara mini-prozor na vrhu pretrazivaca.
