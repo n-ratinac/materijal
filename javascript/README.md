@@ -273,9 +273,9 @@ x.godiste = 2006; // promena se odrazava i na x.godiste i na osoba.godiste
 
 `x` i `osoba` su pokazivaci (reference) na isti objekat u memoriji.
 
-Objekti su Kada se koristi u kontekstu klijentskog programiranja (browser-a)
-onda javascript ima pristup skupu funkcionalnosti koje jednim imenom zovemo
-**browser API**.
+Kada se koristi u kontekstu klijentskog programiranja (browser-a) onda
+javascript ima pristup skupu funkcionalnosti koje jednim imenom zovemo **browser
+API**.
 
 Ono sto nam browser API omogucava jesu sledece funkcionalnosti:
 
