@@ -35,6 +35,10 @@ const d = a;
 
 ### Tipovi podataka
 
+U javascript-u je skoro sve objekat. Sve vrednosti osim primitiva, su objekti.
+Primitive su u sustini literali i ono sto je karakteristicno za njih jeste sto
+nemaju svojstva niti metode.
+
 | Tip Podatka | Opis                                        | Primer Literala                 |
 | ----------- | ------------------------------------------- | ------------------------------- |
 | String      | Тekstualni podatak                          | `'Zdravo, svete!'`              |
@@ -75,7 +79,7 @@ Ako se ovaj kod pokrene dobijemo:
 
 ![Alt text](image.png)
 
-[Dokumentacija o `console` objektu.](https://developer.mozilla.org/en-US/docs/Web/API/console){:target='\_blank'}
+[Dokumentacija o `console` objektu.](https://developer.mozilla.org/en-US/docs/Web/API/console)
 
 Takodje, jedan od nacina izlaza koji je specifican za browser jeste alert.
 Metoda `alert` stvara mini-prozor na vrhu pretrazivaca.
@@ -232,9 +236,46 @@ let difference = subtract(8, 3);
 console.log("Difference:", difference); // Ispisuje: Difference: 5
 ```
 
-Kada se koristi u kontekstu klijentskog programiranja (browser-a) onda
-javascript ima pristup skupu funkcionalnosti koje jednim imenom zovemo **browser
-API**.
+### Objekti
+
+U javascriptu se objekat najcesce kreira na sledeca dva nacina
+
+1. Koriscenjem objekat literala
+2. Koriscenjem kljucne reci `new`
+
+#### 1. Koriscenjem literala
+
+```js
+const osoba = { ime: "Pera", prezime: "Peric", godiste: 1989 };
+```
+
+#### 2. Kljucna rec `new`
+
+```js
+const osoba = new Object();
+osoba.ime = "Pera";
+osoba.prezime = "Peric";
+osoba.godiste = 1989;
+```
+
+Javascript objekti su zapravo reference tako da vazi:
+
+```js
+const osoba = {
+    ime: "Pera",
+    prezime: "Peric",
+    godiste: 1989,
+};
+
+const x = osoba;
+x.godiste = 2006; // promena se odrazava i na x.godiste i na osoba.godiste
+```
+
+`x` i `osoba` su pokazivaci (reference) na isti objekat u memoriji.
+
+Objekti su Kada se koristi u kontekstu klijentskog programiranja (browser-a)
+onda javascript ima pristup skupu funkcionalnosti koje jednim imenom zovemo
+**browser API**.
 
 Ono sto nam browser API omogucava jesu sledece funkcionalnosti:
 
