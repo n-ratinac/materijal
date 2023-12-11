@@ -238,18 +238,20 @@ console.log("Difference:", difference); // Ispisuje: Difference: 5
 
 ### Objekti
 
+#### Definisanje objekata
+
 U javascriptu se objekat najcesce kreira na sledeca dva nacina
 
 1. Koriscenjem objekat literala
 2. Koriscenjem kljucne reci `new`
 
-#### 1. Koriscenjem literala
+##### 1. Koriscenjem literala
 
 ```js
 const osoba = { ime: "Pera", prezime: "Peric", godiste: 1989 };
 ```
 
-#### 2. Kljucna rec `new`
+##### 2. Kljucna rec `new`
 
 ```js
 const osoba = new Object();
@@ -272,6 +274,175 @@ x.godiste = 2006; // promena se odrazava i na x.godiste i na osoba.godiste
 ```
 
 `x` i `osoba` su pokazivaci (reference) na isti objekat u memoriji.
+
+#### Svojstva objekata (properties)
+
+##### Pristup svojstvima
+
+Pristup svojstvima se moze vrsiti na sledece nacine :
+
+```js
+objekat.svojstvo; // osoba.godine
+
+objekat["svojstvo"]; // osoba['godine']
+
+objekat[izraz]; // a = 'godine'; osoba[a]
+```
+
+##### Izlistavanje svojstava
+
+```js
+const osoba = {
+    ime: "Pera",
+    prezime: "Peric",
+    godine: 25,
+};
+
+for (let v in osoba) {
+    console.log(v);
+}
+// ispisuje:
+// ime
+// prezime
+// godine
+
+for (let v in osoba) {
+    console.log(osoba[v]);
+}
+// ispisuje:
+// Pera
+// Peric
+// 25
+```
+
+##### Dodavanje svojstava
+
+```js
+const osoba = {
+    ime: "Pera",
+    prezime: "Peric",
+    godina: 25,
+};
+
+osoba.zanimanje = "automehanicar";
+```
+
+##### Brisanje svojstava
+
+```js
+const osoba = {
+    ime: "Pera",
+    prezime: "Peric",
+    godina: 25,
+};
+
+delete osoba.godina;
+```
+
+##### Objekti kao svojstva (ugnjezdavanje)
+
+```js
+const gost = {
+    ime: "Laza",
+    prezime: "Lazic",
+    rezervacija: {
+        brojStola: 15,
+        brojOsoba: 4,
+    },
+};
+console.log(gost.rezervacija.brojOsoba);
+```
+
+##### Nizovi kao svojstva
+
+```js
+const menadzer = {
+    ime: "Rale",
+    prezime: "Ralevic",
+    godina: 37,
+    podredjeni: [
+        { ime: "Pera", prezime: "Peric", godina: 24 },
+        { ime: "Mika", prezime: "Mikic", godina: 21 },
+        { ime: "Laza", prezime: "Lazic", godina: 27 },
+    ],
+};
+
+console.log(menadzer.podredjeni[1].ime); // ispisuje 'Mika'
+```
+
+#### Metode
+
+##### Definisanje metoda
+
+```js
+const osoba = {};
+osoba.ime = "Rale";
+osoba.prezime = "Ralevic";
+osoba.godine = 35;
+osoba.punoIme = function () {
+    return this.ime + " " + this.prezime;
+};
+
+console.log(osoba.punoIme()); // ispisuje 'Rale Ralevic'
+```
+
+#### `this`
+
+Kljucnu rec `this` (ili njen ekvivalent), ste sigurno susretali u drugim
+objektno-orijentisanim jezicima i, kao i tamo, ovde ona oznacava referencu
+objekta na samog sebe. Ono sto je specificno za javascript jeste to sto se this
+zapravo moze pozvati u bilo kom kontekstu izvrsenja. U zavisnosti od konteksta:
+
+-   U globalnom kontekstu vraca referencu na **globalni objekat** (npr. window
+    objekat ukoliko se radi o browser-u)
+    ```js
+    console.log(this); // vraca referencu na window objekat
+    ```
+-   U kontekstu funkcije koja nije vezana za korisnicki definisan objekat
+    takodje vraca referencu na globalni objekat (sto znaci da zapravo da
+    **funkcije u pravom smislu te reci ne postoje**, vec postoje samo metode na
+    globalnom objektu)
+    ```js
+    function exampleFunction() {
+        console.log(this);
+    }
+    exampleFunction(); // takodje vraca referencu na globalni objekat
+    ```
+-   U kontekstu metode na objektu, vraca referencu na taj objekat
+
+    ```js
+    const obj = {
+        method: function () {
+            console.log(this);
+        },
+    };
+
+    obj.method(); // vraca referencu na obj
+    ```
+
+-   U kontekstu upravaljanja dogadjajima, `this` **oznacava DOM element koji je
+    podigao dogadjaj**
+    ```js
+    document.getElementById("myButton").addEventListener("click", function () {
+        console.log(this); // vraca referencu na element koji ima id 'myButton'
+    });
+    ```
+-   Kada se koristi u kontekstu lambda funkcija (`=>`) onda `this` pokazuje na
+    isto na sta pokazuje `this` u kontekstu definisanja lambda funkcije
+
+    ```js
+    const f1 = () => {
+        console.log(this); // vraca referencu na globalni objekat
+    };
+
+    const obj {
+        f2 : () => {
+            console.log(this); // vraca referencu na obj
+        }
+    }
+    ```
+
+### Nizovi
 
 Kada se koristi u kontekstu klijentskog programiranja (browser-a) onda
 javascript ima pristup skupu funkcionalnosti koje jednim imenom zovemo **browser
