@@ -1,5 +1,7 @@
 # Javascript
 
+[TOC]
+
 Javascript je jezik koji se primarno koristio za programiranje klijetskog dela
 web aplikacija, ali se od skorijeg vremena koristi i na serveru uz pomoc node.js
 runtime okruzenja.
@@ -488,9 +490,88 @@ const nums = [1, 2, 3, 4, 5];
 console.log(nums.length);
 ```
 
+##### Znacajne metode
+
+| Metoda      | Objasnjenje                                                                                                | Primer                                                                    | Primer Objasnjenje                                             |
+| ----------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| `push()`    | Dodaje jedan ili vise elemenata na kraj niza.                                                              | `niz.push(4, 5)`                                                          | Dodaje elemente 4 i 5 na kraj niza.                            |
+| `pop()`     | Uklanja poslednji element sa kraja niza.                                                                   | `let poslednjiElement = niz.pop()`                                        | Uklanja i vraca poslednji element.                             |
+| `shift()`   | Uklanja prvi element sa pocetka niza.                                                                      | `let prviElement = niz.shift()`                                           | Uklanja i vraca prvi element.                                  |
+| `unshift()` | Dodaje jedan ili vise elemenata na pocetak niza.                                                           | `niz.unshift(1, 2)`                                                       | Dodaje elemente 1 i 2 na pocetak niza.                         |
+| `slice()`   | Vraca plitku kopiju dela niza.                                                                             | `let noviNiz = niz.slice(1, 4)`                                           | Vraca elemente na indeksima 1, 2 i 3.                          |
+| `splice()`  | Menja sadrzaj niza uklanjanjem ili zamjenom postojecih elemenata.                                          | `niz.splice(1, 2, 'a', 'b')`                                              | Uklanja 2 elementa pocinjuci od indeksa 1 i ubacuje 'a' i 'b'. |
+| `indexOf()` | Vraca prvi indeks na kojem se nalazi dati element.                                                         | `let indeks = niz.indexOf(3)`                                             | Vraca indeks prvog pojavljivanja broja 3.                      |
+| `forEach()` | Izvrsava datu funkciju jednom za svaki element niza.                                                       | `niz.forEach(element => console.log(element))`                            | Prikazuje svaki element niza na konzoli.                       |
+| `map()`     | Kreira novi niz sa rezultatima pozivanja date funkcije za svaki element.                                   | `let kvadriraniNiz = niz.map(element => element * element)`               | Kreira novi niz sa kvadriranim vrednostima.                    |
+| `filter()`  | Kreira novi niz sa svim elementima koji prolaze test dat funkcijom.                                        | `let filtriraniNiz = niz.filter(element => element > 2)`                  | Kreira novi niz sa elementima vecim od 2.                      |
+| `reduce()`  | Primenjuje funkciju na akumulator i svaki element niza (s leva na desno) da ga redukuje na jednu vrednost. | `let suma = niz.reduce((akumulator, element) => akumulator + element, 0)` | Racuna sumu svih elemenata niza.                               |
+| `every()`   | Proverava da li svi elementi u nizu prolaze test dat funkcijom.                                            | `let sviVećiOdNule = niz.every(element => element > 0)`                   | Proverava da li su svi elementi veci od nule.                  |
+| `some()`    | Proverava da li barem jedan element u nizu prolazi test dat funkcijom.                                     | `let nekiVećiOdDeset = niz.some(element => element > 10)`                 | Proverava da li bar jedan element niza veci od 10.             |
+| `sort()`    | Sortira elemente niza na licu mesta.                                                                       | `niz.sort((a, b) => a - b)`                                               | Sortira niz u rastucem redosledu.                              |
+| `reverse()` | Okrece redosled elemenata niza na licu mesta.                                                              | `niz.reverse()`                                                           | Okrece redosled elemenata niza.                                |
+
 Sve metode nad nizovima mozete naci na
 [ovom linku](https://www.w3schools.com/jsref/jsref_obj_array.asp) zajedno sa
 pratecom dokumentacijom i primerima.
+
+### Stringovi
+
+Javascript stringovi se kao i kod drugih programskih jezika tretiraju kao nizovi
+karaktera.
+
+#### Deklaracija
+
+```js
+const ime = "Laza";
+const prezime = "Lazic";
+const punoIme = ime + " " + prezime; // dozvoljeno je nadovezivanje koriscenjem operatora +
+```
+
+#### Interpolacija
+
+Kada zelimo da tokom runtime-a umetnemo neke vrednosti u string, onda moramo da
+koristimo **string interpolaciju**. Obavezno je da koristimo karakter `` ` `` za
+oznacavanje string literala koji se mogu interpolirati. Vrednosti koje se
+koriste za interpolaciju moraju se naci unutar strukture `${}`.
+
+```js
+const ime = "Mika";
+const prezime = "Mikic";
+const godine = 26;
+
+const tekst = `Osoba se zove ${ime} ${prezime} i ima ${godine} godina`;
+console.log(tekst); // ispisuje Osoba se zove Mika Mikic i ima 26 godina
+```
+
+Ovo je posebno korisno kada treba se dinamicki generise markup koji treba da
+sluzi kao prikaz dinamickih podataka.
+
+Ovo se moze prosiriti tako da `${}` sadrzi i logiku tj. validan javascript kod.
+
+```js
+const broj = 42;
+console.log(`Broj ${broj} je ${broj % 2 === 0 ? "paran" : "neparan"}`);
+```
+
+#### Znacajne metode
+
+| Metod           | Objašnjenje                                                    | Primer                                        | Nakon Izvršenja                                                               |
+| --------------- | -------------------------------------------------------------- | --------------------------------------------- | ----------------------------------------------------------------------------- |
+| `concat()`      | Spaja dva ili više stringova i vraća novi string               | `let rezultat = str1.concat(str2);`           | `rezultat` sadrži spojeni string.                                             |
+| `toUpperCase()` | Pretvara string u velika slova                                 | `let velikaSlovaStr = str.toUpperCase();`     | `velikaSlovaStr` sadrži string pretvoren u velika slova.                      |
+| `toLowerCase()` | Pretvara string u mala slova                                   | `let malaSlovaStr = str.toLowerCase();`       | `malaSlovaStr` sadrži string pretvoren u mala slova.                          |
+| `charAt()`      | Vraća karakter na određenom indeksu u stringu                  | `let karakter = str.charAt(2);`               | `karakter` sadrži karakter na indeksu 2 u stringu.                            |
+| `indexOf()`     | Vraća indeks prvog pojavljivanja određenog podniza u stringu   | `let indeks = str.indexOf('pretraga');`       | `indeks` sadrži indeks prvog pojavljivanja 'pretraga' u stringu.              |
+| `substring()`   | Vraća podnisku na osnovu početnog i završnog indeksa           | `let podNiska = str.substring(0, 5);`         | `podNiska` sadrži podnisku od indeksa 0 do 4 (isključujući 5) u stringu.      |
+| `slice()`       | Izdvaja deo stringa i vraća novi string                        | `let izdvojenStr = str.slice(2, 5);`          | `izdvojenStr` sadrži podnisku od indeksa 2 do 4 (isključujući 5) u stringu.   |
+| `replace()`     | Zamenjuje određenu vrednost drugom vrednošću u stringu         | `let noviStr = str.replace('stari', 'novi');` | `noviStr` sadrži string sa prvom pojavom 'stari' zamenjenom sa 'novi'.        |
+| `split()`       | Deli string na niz podniski na osnovu određenog razgraničivača | `let niz = str.split(',');`                   | `niz` je niz koji sadrži podniske razdvojene zarezima iz originalnog stringa. |
+| `trim()`        | Uklanja praznine sa obe strane stringa                         | `let sredjenStr = str.trim();`                | `sredjenStr` sadrži string bez vodećih i trailing praznina.                   |
+
+Sve funkcije vezane za stringove mozete naci na
+[ovom linku](https://www.w3schools.com/jsref/jsref_obj_string.asp)
+
+## Browser API
 
 Kada se koristi u kontekstu klijentskog programiranja (browser-a) onda
 javascript ima pristup skupu funkcionalnosti koje jednim imenom zovemo **browser
@@ -517,9 +598,9 @@ Ono sto nam browser API omogucava jesu sledece funkcionalnosti:
 -   **WebSocket-i** : Omogucuje bidirekcionu komunikaciju u realnom vremenu
     izmedju browsera i servera koriscenjem jedne dugotrajne konekcije
 
-## Manipulacija DOM-om
+### Manipulacija DOM-om
 
-### Selekcija i pristup elementima
+#### Selekcija i pristup elementima
 
 Nacin pristupa DOM stablu se vrsi preko `document` objekta (dokumentaciju mozete
 procitati [ovde](https://developer.mozilla.org/en-US/docs/Web/API/Document)).
@@ -536,9 +617,9 @@ Elementima DOM-a mozemo pristupati na osnovu:
 Treba imati u vidu da ove metode vracaju referencu na jedan element ili listu
 elemenata koji zadovoljavaju uslov selekcije.
 
-### Menjanje sadrzaja elemenata
+#### Menjanje sadrzaja elemenata
 
-#### Setovanje atributa
+##### Setovanje atributa
 
 ```js
 let dugme = document.getElementById("myButton");
@@ -546,14 +627,14 @@ dugme.disabled = true; // atribut disabled se postavlja na true
 dugme.setAttribute("name", "moje-dugme"); // setuje atribut 'name' na 'moje-dugme'
 ```
 
-#### Setovanje stilova
+##### Setovanje stilova
 
 ```js
 let emailInput = document.querySelector(`input[type='email']`)[0]; // mora [0] jer querySelector vraca listu
 email.style.padding = "4px"; // style je ugnjezden objekat na objektu email i setujemo padding svojstvo
 ```
 
-#### Setovanje klase
+##### Setovanje klase
 
 ```js
 let divs = document.querySelector(`div.circle`); // uzimanje svih divova sa klasom circle
@@ -566,3 +647,129 @@ for (div of divs) {
 Za vise informacija o tome sta sve mozete da radite sa HTMLElement objektima u
 javascript-u posetite
 [ovaj link](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)
+
+#### Podizanje i reagovanje na dogadjaje (events)
+
+Dogadjaji su veoma mocan alat za programiranje klijentskog ponasanja jer se
+problemu moze pristupiti sa umosklopom "Ako se desi X onda radi Y". Svaki HTML
+element ima listu dogadjaja koju moze da podigne. U javascript-u su ti dogadjaji
+reprezentovani kao svojstva na objektima. Naravno, ta lista zavisi od tipa
+elementa. Jasno je da div elementi ne mogu imati `oninput` dogadjaj kao sto
+input elementi imaju.
+
+##### Event interface
+
+`Event` je interfejs koji svi moderni browseri implmentiraji i sluzi da
+reprezentuje dogadjaj koji se desio u DOM-u. Citavu dokumentaciju ovog
+interfejsa mozete pogledati na
+[ovom linku](https://developer.mozilla.org/en-US/docs/Web/API/Event). Ovde cemo
+se samo upoznati sa osnovnim svojstvima i metodama.
+
+| Svojstvo         | Opis                                                     | Primer                   |
+| ---------------- | -------------------------------------------------------- | ------------------------ |
+| `type`           | Tip događaja (npr. "click", "keydown").                  | `event.type`             |
+| `target`         | Element koji je izazvao događaj.                         | `event.target`           |
+| `currentTarget`  | Element na koji je vezan rukovalac događaja.             | `event.currentTarget`    |
+| `clientX`        | Horizontalna koordinata pokazivača miša.                 | `event.clientX`          |
+| `clientY`        | Vertikalna koordinata pokazivača miša.                   | `event.clientY`          |
+| `pageX`          | Horizontalna koordinata u odnosu na dokument.            | `event.pageX`            |
+| `pageY`          | Vertikalna koordinata u odnosu na dokument.              | `event.pageY`            |
+| `keyCode`        | Kod tastera za događaje tastature.                       | `event.keyCode`          |
+| `key`            | Vrednost tastera za događaje tastature.                  | `event.key`              |
+| `shiftKey`       | Označava da li je pritisnut taster "Shift".              | `event.shiftKey`         |
+| `ctrlKey`        | Označava da li je pritisnut taster "Ctrl".               | `event.ctrlKey`          |
+| `altKey`         | Označava da li je pritisnut taster "Alt".                | `event.altKey`           |
+| `preventDefault` | Metoda za sprečavanje podrazumevanog ponašanja događaja. | `event.preventDefault()` |
+
+`type` svojstvo odgovara tipu dogadjaja i svi dogadjaji (koji nisu korisnicki
+definisani) imaju atribut za HTML elemente.
+
+##### Reagovanje na dogadjaje (event handling)
+
+Definisanje logike koja se izvrsava onda kada se neki dogadjaj podigne se moze
+uraditi na nekoliko nacina. Funkcija koja reaguje na dogadjaj moze da prima
+Event objekat kao parametar, ali i ne mora ukoliko nam nisu potrebni detalji
+dogadjaja.
+
+###### 1. Pretplacivanje na dogadjaj koriscenjem HTML atributa
+
+```html
+<script>
+    const obradiDogadjaj = () => {
+        alert("Desio se dogadjaj!");
+    };
+</script>
+...
+<button onclick="obradiDogadjaj()" />
+```
+
+Ovde smo u HTML kodu naveli da kada se dugme klikne (a samim tim podigne
+dogadjaj), izvrsava se funkcija `obradiDogadjaj`.
+
+```html
+<script>
+    const obradiDogadjaj = (event) => {
+        console.log("Event type:", event.type);
+        console.log("Target element:", event.target);
+        console.log("Current target element:", event.currentTarget);
+        console.log(
+            "Mouse coordinates (clientX, clientY):",
+            event.clientX,
+            event.clientY
+        );
+
+        event.preventDefault();
+        event.stopPropagation();
+    };
+</script>
+...
+<button onclick="obradiDogadjaj(this)" />
+```
+
+###### 2. Pretplacivanje na dogadjaj koriscenjem javascripta
+
+```js
+const registerEvents = () => {
+    let myButton = document.getElementById("myButton");
+    // koriscenjem addEventListener metode
+    myButton.addEventListener("click", (event) => {
+        console.log(`Hello from ${event}`);
+    });
+    // koriscenjem svojstva
+    myButton.ondblclick = (event) => {
+        console.log(`${event} double clicked`);
+    };
+};
+```
+
+`AddEventListener` metoda prima 2 parametra:
+
+1. Naziv dogadjaja na koji se reaguje
+2. Funkciju koja treba da se izvrsi kada se dogadjaj podigne
+
+##### Podizanje dogadjaja (event triggering)
+
+###### Podizanje vec postojecih dogadjaja
+
+```js
+let element = document.getElementById("myButton");
+element.click(); // podize dogadjaj tipa 'click' na elementu 'element'
+```
+
+###### Definisanje i podizanje korisnickih dogadjaja (CustomEvent)
+
+```js
+let myEvent = new CustomEvent("customType", {
+    details: {
+        key: "value",
+    },
+    document.dispatchEvent(myEvent) // DOM podize myEvent
+});
+```
+
+Naravno, nije nuzno da sam DOM podize dogadjaj. Dogadjaj moze da se podigne iz
+bilo kog cvora DOM stabla. Tu se postavlja pitanje: Ako se dogadjaj moze podici
+iz bilo kog dela DOM stabla, da li se moze reagovati na njega takodje iz bilo
+kog dela DOM stabla?
+
+Odgovor je **da**.
