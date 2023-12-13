@@ -476,21 +476,21 @@ Za nabrajanje se korisiti:
 | `of`        | nizovi, iterabilni tipovi |
 | `in`        | objekti                   |
 
-##### Indeksiranje
+#### Indeksiranje
 
 ```js
 const nums = [1, 2, 3, 4];
 console.log(nums[2]); // ispisuje 3
 ```
 
-##### Duzina
+#### Duzina
 
 ```js
 const nums = [1, 2, 3, 4, 5];
 console.log(nums.length);
 ```
 
-##### Znacajne metode
+#### Znacajne metode
 
 | Metoda      | Objasnjenje                                                                                                | Primer                                                                    | Primer Objasnjenje                                             |
 | ----------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------- |
