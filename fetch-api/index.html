@@ -6,6 +6,33 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
         let data;
+        
+        const toggleParniVisibility = () => {
+            console.log($("#parni").checked)
+            if ($("#parni").is(":checked"))
+                $(".par").show()
+            else 
+                $(".par").hide()
+        }
+
+        const toggleNeparniVisibility = () => {
+            console.log($("#neparni").checked)
+            if ($("#neparni").is(":checked"))
+                $(".nepar").show()
+            else 
+                $(".nepar").hide()
+        }
+      
+
+        const renderList = (data) => 
+        {
+            const ul = $('#list');
+            data.map(element => {
+                element = $(`<li class=${element % 2 === 0 ? 'par' : 'nepar'}>${element}</li>`)
+                ul.prepend(element);
+            });
+        }
+
         $(document).ready(async () => {
             console.log("Sending request")
             const res = await fetch("http://10.0.6.101:3000/brojevi")
@@ -13,11 +40,15 @@
             console.log(res)
             data = await res.json()
             console.log(data);
+
+            renderList(data);
         })
     </script>
     <title>Fetch primer</title>
 </head>
 <body>
-    
+    <input type="checkbox" name="" id="parni" onclick="toggleParniVisibility()" checked>
+    <input type="checkbox" name="" id="neparni" onclick="toggleNeparniVisibility()" checked>
+    <ul id="list"></ul>
 </body>
 </html>
