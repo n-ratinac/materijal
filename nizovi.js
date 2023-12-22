@@ -1,9 +1,15 @@
 function PrikaziUcenike(ucenici){
     console.log("Prikazujem ucenike")
     ucenici.map(e => {
+        if(e["odlican"]){
+            document.documentElement.innerHTML += e.ime + " " + e.prezime + " 1" + "<br>" 
+        }
+        else{
         document.documentElement.innerHTML += e.ime + " " + e.prezime + "<br>"
+        }
     })
 }
+
 
 function SortPo(prop) {    
     return function(a, b) {    
@@ -37,6 +43,10 @@ function SortirajProseke(ucenici){
 }
 
 function ObeleziOdlicne(ucenici){
-
+    for (i = 0; i < ucenici.length; i++){
+        if(ucenici[i]['prosek']>=4.5){
+            ucenici[i]['odlican']=true;
+        }
+    }
 }
 
